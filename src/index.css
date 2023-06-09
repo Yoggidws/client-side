@@ -14,10 +14,14 @@
 @tailwind utilities;
 
 body{
-  background-image: url(/src/img/test.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #FAFAFA;
 }
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
 html,root, body, #app, #app>div {
   height: 100vh
 }

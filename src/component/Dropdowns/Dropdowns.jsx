@@ -2,17 +2,32 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+// import { useState } from 'react'
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Dropdowns() {
+export default function Dropdowns({ data }) {
+    // const [state, setState] = useState(data);
+    // const handleButton = (e) => {
+    //     let keword = e.target.value;
+    //     if (keword === 'Laptop') {
+    //         setState(data)
+    //     } else if (keword === 'Mouse') {
+    //         const filtered = data.filter(device => device.kind === 'Mouse');
+    //         setState(filtered);
+    //     } else if (keword === 'Earphone') {
+    //         const filtered = data.filter(device => device.kind === 'Earphone');
+    //         setState(filtered);
+    //     }
+    // }
+
     return (
         <div className='flex flex-row-reverse'>
             <Menu as="div" className="relative inline-block text-left">
                 <div>
                     <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                        Options
+                        Laptop
                         <FontAwesomeIcon icon={faChevronDown} />
                     </Menu.Button>
                 </div>
@@ -29,33 +44,34 @@ export default function Dropdowns() {
                         <div className="py-1">
                             <Menu.Item>
                                 {({ active }) => (
-                                    <a
+                                    <button
+                                        valuue='Laptop'
+                                        // onClick={handleButton}
+                                        className={classNames(
+                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                            'block px-4 py-2 text-sm'
+                                        )}
+                                    >
+                                        Laptop
+                                    </button>
+                                )}
+                            </Menu.Item>
+                            <Menu.Item>
+                                {({ active }) => (
+                                    <button
                                         href="/"
                                         className={classNames(
                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                             'block px-4 py-2 text-sm'
                                         )}
                                     >
-                                        Account settings
-                                    </a>
+                                        Mouse
+                                    </button>
                                 )}
                             </Menu.Item>
                             <Menu.Item>
                                 {({ active }) => (
-                                    <a
-                                        href="/"
-                                        className={classNames(
-                                            active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                            'block px-4 py-2 text-sm'
-                                        )}
-                                    >
-                                        Support
-                                    </a>
-                                )}
-                            </Menu.Item>
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <a
+                                    <button
                                         href="/"
                                         className={classNames(
                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -63,7 +79,7 @@ export default function Dropdowns() {
                                         )}
                                     >
                                         License
-                                    </a>
+                                    </button>
                                 )}
                             </Menu.Item>
                         </div>
